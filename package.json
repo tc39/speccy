@@ -1,0 +1,40 @@
+{
+	"name": "speccy",
+	"version": "1.0.0",
+	"private": true,
+	"description": "A click-to-copy grid of the non-ASCII characters that ecmarkup produces, for writing ECMAScript spec text.",
+	"type": "module",
+	"scripts": {
+		"collect": "node src/collect.ts",
+		"build": "node src/build.ts",
+		"preregen": "npm run collect",
+		"regen": "npm run build",
+		"lint": "eslint .",
+		"postlint": "tsc",
+		"clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true});require('fs').rmSync('build',{recursive:true,force:true})\"",
+		"serve": "node src/serve.ts",
+		"predev": "npm run regen",
+		"dev": "npm run serve"
+	},
+	"engines": {
+		"node": ">=22.18"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=22.18",
+			"onFail": "error"
+		}
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.5",
+		"@ljharb/eslint-config": "^22.2.3",
+		"@ljharb/tsconfig": "^0.3.2",
+		"@types/node": "^25.9.1",
+		"ecmarkup": "^24.1.0",
+		"eslint": "^10.4.1",
+		"globals": "^16.5.0",
+		"typescript": "next",
+		"typescript-eslint": "^8.60.1"
+	}
+}

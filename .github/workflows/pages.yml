@@ -1,0 +1,75 @@
+name: Build & deploy to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update ecmarkup to latest
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: npm install --save-dev ecmarkup@latest
+
+      - name: Lint and type-check
+        run: npm run lint
+
+      - name: Collect characters (monotonic union + spec usage)
+        run: npm run collect
+
+      - name: Build site with ecmarkup
+        run: npm run build
+
+      # A push authenticated with GITHUB_TOKEN does not retrigger workflows, so committing here cannot loop.
+      - name: Commit refreshed data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/characters.json package.json
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+          else
+            VER=$(node -p "require('./node_modules/ecmarkup/package.json').version")
+            git commit -m "chore: refresh characters from ecmarkup ${VER}"
+            git push
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v5
