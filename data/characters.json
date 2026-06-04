@@ -27,7 +27,7 @@
       "id": "ecma402",
       "label": "ECMA-402",
       "source": "https://raw.githubusercontent.com/tc39/ecma402/main/spec/index.html",
-      "usedCount": 28
+      "usedCount": 27
     },
     {
       "id": "ecma404",
@@ -43,11 +43,11 @@
     }
   ],
   "counts": {
-    "total": 1431,
+    "total": 1430,
     "producible": 1420,
     "inLatest": 1420,
     "removed": 0,
-    "nonProducible": 11
+    "nonProducible": 10
   },
   "chars": [
     {
@@ -38203,24 +38203,6 @@
         "23.0.2",
         "24.1.0"
       ]
-    },
-    {
-      "char": "️",
-      "hex": "FE0F",
-      "cp": [
-        65039
-      ],
-      "name": "VARIATION SELECTOR-16",
-      "block": "Variation Selectors",
-      "entities": [],
-      "producible": false,
-      "usage": {
-        "ecma402": 47
-      },
-      "inLatest": false,
-      "firstSeen": "",
-      "lastSeen": "",
-      "versions": []
     },
     {
       "char": "𝒜",

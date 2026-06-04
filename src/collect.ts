@@ -14,6 +14,11 @@ const MIN_MAJOR = 15;
 const REGISTRY_URL = 'https://registry.npmjs.org/ecmarkup';
 const UCD = 'https://www.unicode.org/Public/UCD/latest/ucd';
 
+// Mirrors ecmarkup's formatter filter: whitespace, default-ignorable code points
+// (variation selectors, ZWJ, …), marks, and controls aren't standalone copyable
+// characters, so they're excluded even when a tracked spec's source contains them.
+const EXCLUDE = /\p{White_Space}|\p{Default_Ignorable_Code_Point}|\p{M}|\p{C}/u;
+
 interface Spec {
 	id: string;
 	label: string;
@@ -335,6 +340,7 @@ async function main(): Promise<void> {
 		union.forEach((rec) => { delete rec.usage[spec.id]; });
 		let producibleHits = 0;
 		counts.forEach((n, ch) => {
+			if (EXCLUDE.test(ch)) { return; }
 			let rec = union.get(ch);
 			if (!rec) {
 				// A character the spec uses that no ecmarkup version produces from an entity
@@ -363,7 +369,7 @@ async function main(): Promise<void> {
 		log(`${spec.label} uses ${counts.size} distinct non-ASCII characters; ${producibleHits} producible`);
 	});
 
-	const chars = union.values().toArray().sort((a, b) => (a.cp[0] - b.cp[0]) || (a.char < b.char ? -1 : 1));
+	const chars = union.values().toArray().filter((c) => !EXCLUDE.test(c.char)).sort((a, b) => (a.cp[0] - b.cp[0]) || (a.char < b.char ? -1 : 1));
 	const allScanned = [latestVersion, ...scannedHistory].sort(cmpVer);
 	function sortUsage(u: Record<string, number>): Record<string, number> {
 		return Object.fromEntries(SPECS.map((s): [string, number] => [s.id, u[s.id]]).filter(([, n]) => n > 0));
