@@ -156,7 +156,26 @@
 		toastTimer = setTimeout(() => { el.classList.remove('show'); }, 1400);
 	}
 
-	if (input) { input.addEventListener('input', applyFilter); }
+	/** @returns {void} */
+	function syncSearchUrl() {
+		if (!input) { return; }
+		const url = new URL(window.location.href);
+		if (input.value) {
+			url.searchParams.set('q', input.value);
+		} else {
+			url.searchParams.delete('q');
+		}
+		window.history.replaceState(window.history.state, '', url);
+	}
+
+	if (input) {
+		input.addEventListener('input', () => {
+			applyFilter();
+			syncSearchUrl();
+		});
+		const q = new URLSearchParams(window.location.search).get('q');
+		if (q) { input.value = q; }
+	}
 
 	document.addEventListener('click', (e) => {
 		const target = /** @type {Element | null} */ (e.target);
@@ -212,6 +231,12 @@
 	} else {
 		renderKeystrokes(detectPlatform());
 	}
+
+	window.addEventListener('popstate', () => {
+		if (!input) { return; }
+		input.value = new URLSearchParams(window.location.search).get('q') ?? '';
+		applyFilter();
+	});
 
 	applyFilter();
 })();
