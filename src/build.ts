@@ -97,6 +97,10 @@ const STYLE = `<style>
 .cell .ent{font-size:.66rem;opacity:.85;word-break:break-all;cursor:copy;
   background:rgba(127,127,127,.14);border-radius:4px;padding:0 .2rem}
 .cell .cp{font-size:.6rem;opacity:.55;letter-spacing:.02em}
+.cell .keys{flex-basis:100%;font-size:.6rem;opacity:.6;letter-spacing:.01em}
+.speccy-platform{margin:.4rem 0 0;font-size:.85rem}
+.speccy-platform select{font:inherit;margin-left:.35rem;padding:.1rem .3rem;
+  border:1px solid rgba(127,127,127,.5);border-radius:6px;background:inherit;color:inherit}
 .cell .uses{display:flex;flex-wrap:wrap;gap:.2rem;justify-content:center}
 .use{font-size:.58rem;line-height:1.5;padding:0 .35rem;border-radius:999px;white-space:nowrap;
   background:rgba(127,127,127,.18)}
@@ -275,6 +279,7 @@ function buildSource(data: CharacterData): string {
 <label for="speccy-q">Search characters</label>
 <input id="speccy-q" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="purpose, name, entity, character, or U+XXXX - e.g. “number”, “list”, “laquo”, “𝔽”, “U+2264”">
 <p class="speccy-count" id="speccy-count" aria-live="polite"></p>
+<p class="speccy-platform"><label for="speccy-platform">Keystrokes for</label><select id="speccy-platform"><option value="auto">Auto</option><option value="mac">macOS</option><option value="win">Windows</option><option value="linux">Linux</option></select></p>
 </div>
 <p class="speccy-legend">
 <span class="chip"><strong>Tap a glyph</strong> → copy the character (e.g. <code>𝔽</code>).</span>
