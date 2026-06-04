@@ -22,6 +22,7 @@ const EXCLUDE = /\p{White_Space}|\p{Default_Ignorable_Code_Point}|\p{M}|\p{C}/u;
 interface Spec {
 	id: string;
 	label: string;
+	home: string;
 	kind: 'single' | 'multi';
 	url?: string;
 	indexUrl?: string;
@@ -47,12 +48,14 @@ const SPECS: Spec[] = [
 	{
 		id: 'ecma262',
 		label: 'ECMA-262',
+		home: 'https://tc39.es/ecma262/',
 		kind: 'single',
 		url: 'https://raw.githubusercontent.com/tc39/ecma262/main/spec.html',
 	},
 	{
 		id: 'ecma402',
 		label: 'ECMA-402',
+		home: 'https://tc39.es/ecma402/',
 		kind: 'multi',
 		indexUrl: 'https://raw.githubusercontent.com/tc39/ecma402/main/spec/index.html',
 		baseUrl: 'https://raw.githubusercontent.com/tc39/ecma402/main/spec/',
@@ -60,14 +63,37 @@ const SPECS: Spec[] = [
 	{
 		id: 'ecma404',
 		label: 'ECMA-404',
+		home: 'https://tc39.es/ecma404/',
 		kind: 'single',
 		url: 'https://raw.githubusercontent.com/tc39/ecma404/main/spec.html',
 	},
 	{
+		id: 'ecma424',
+		label: 'ECMA-424',
+		home: 'https://tc54.org/cyclonedx/',
+		kind: 'single',
+		url: 'https://ecma-tc54.github.io/ECMA-424/',
+	},
+	{
 		id: 'ecma426',
 		label: 'ECMA-426',
+		home: 'https://tc39.es/ecma426/',
 		kind: 'single',
 		url: 'https://raw.githubusercontent.com/tc39/source-map/main/spec.emu',
+	},
+	{
+		id: 'ecma427',
+		label: 'ECMA-427',
+		home: 'https://tc54.org/purl/',
+		kind: 'single',
+		url: 'https://raw.githubusercontent.com/Ecma-TC54/ECMA-427/main/spec.html',
+	},
+	{
+		id: 'ecma428',
+		label: 'ECMA-428',
+		home: 'https://tc54.org/cle/',
+		kind: 'single',
+		url: 'https://raw.githubusercontent.com/Ecma-TC54/ECMA-428/main/spec.emu',
 	},
 ];
 
@@ -380,6 +406,7 @@ async function main(): Promise<void> {
 		specs: SPECS.map((s) => ({
 			id: s.id,
 			label: s.label,
+			home: s.home,
 			source: s.kind === 'single' ? s.url : s.indexUrl,
 			usedCount: chars.filter((c) => c.usage[s.id] > 0).length,
 		})),

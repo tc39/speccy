@@ -20,26 +20,51 @@
     {
       "id": "ecma262",
       "label": "ECMA-262",
+      "home": "https://tc39.es/ecma262/",
       "source": "https://raw.githubusercontent.com/tc39/ecma262/main/spec.html",
       "usedCount": 28
     },
     {
       "id": "ecma402",
       "label": "ECMA-402",
+      "home": "https://tc39.es/ecma402/",
       "source": "https://raw.githubusercontent.com/tc39/ecma402/main/spec/index.html",
       "usedCount": 27
     },
     {
       "id": "ecma404",
       "label": "ECMA-404",
+      "home": "https://tc39.es/ecma404/",
       "source": "https://raw.githubusercontent.com/tc39/ecma404/main/spec.html",
       "usedCount": 4
     },
     {
+      "id": "ecma424",
+      "label": "ECMA-424",
+      "home": "https://tc54.org/cyclonedx/",
+      "source": "https://ecma-tc54.github.io/ECMA-424/",
+      "usedCount": 7
+    },
+    {
       "id": "ecma426",
       "label": "ECMA-426",
+      "home": "https://tc39.es/ecma426/",
       "source": "https://raw.githubusercontent.com/tc39/source-map/main/spec.emu",
       "usedCount": 14
+    },
+    {
+      "id": "ecma427",
+      "label": "ECMA-427",
+      "home": "https://tc54.org/purl/",
+      "source": "https://raw.githubusercontent.com/Ecma-TC54/ECMA-427/main/spec.html",
+      "usedCount": 2
+    },
+    {
+      "id": "ecma428",
+      "label": "ECMA-428",
+      "home": "https://tc54.org/cle/",
+      "source": "https://raw.githubusercontent.com/Ecma-TC54/ECMA-428/main/spec.emu",
+      "usedCount": 2
     }
   ],
   "counts": {
@@ -1151,7 +1176,9 @@
         "&copy;"
       ],
       "producible": true,
-      "usage": {},
+      "usage": {
+        "ecma424": 3
+      },
       "inLatest": true,
       "firstSeen": "15.0.4",
       "lastSeen": "24.1.0",
@@ -1274,7 +1301,8 @@
       ],
       "producible": true,
       "usage": {
-        "ecma426": 2
+        "ecma426": 2,
+        "ecma427": 2
       },
       "inLatest": true,
       "firstSeen": "15.0.4",
@@ -3573,7 +3601,9 @@
         "&uuml;"
       ],
       "producible": true,
-      "usage": {},
+      "usage": {
+        "ecma424": 1
+      },
       "inLatest": true,
       "firstSeen": "15.0.4",
       "lastSeen": "24.1.0",
@@ -12058,7 +12088,9 @@
       ],
       "producible": true,
       "usage": {
-        "ecma402": 19
+        "ecma402": 19,
+        "ecma424": 8,
+        "ecma428": 2
       },
       "inLatest": true,
       "firstSeen": "15.0.4",
@@ -12090,7 +12122,8 @@
       "producible": true,
       "usage": {
         "ecma262": 16,
-        "ecma402": 1
+        "ecma402": 1,
+        "ecma428": 2
       },
       "inLatest": true,
       "firstSeen": "15.0.4",
@@ -12211,7 +12244,10 @@
         "&rsquor;"
       ],
       "producible": true,
-      "usage": {},
+      "usage": {
+        "ecma424": 3,
+        "ecma427": 1
+      },
       "inLatest": true,
       "firstSeen": "15.0.4",
       "lastSeen": "24.1.0",
@@ -12274,6 +12310,7 @@
       "usage": {
         "ecma262": 190,
         "ecma402": 11,
+        "ecma424": 1,
         "ecma426": 1
       },
       "inLatest": true,
@@ -12309,6 +12346,7 @@
       "usage": {
         "ecma262": 190,
         "ecma402": 11,
+        "ecma424": 1,
         "ecma426": 1
       },
       "inLatest": true,
@@ -14678,6 +14716,7 @@
       "producible": true,
       "usage": {
         "ecma262": 14,
+        "ecma424": 4,
         "ecma426": 2
       },
       "inLatest": true,

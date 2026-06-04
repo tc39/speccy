@@ -31,6 +31,7 @@ interface CharRecord {
 interface SpecMeta {
 	id: string;
 	label: string;
+	home: string;
 	source: string;
 	usedCount: number;
 }
@@ -107,7 +108,10 @@ const STYLE = `<style>
 .use-262{background:rgba(31,157,85,.22)}
 .use-402{background:rgba(58,122,254,.22)}
 .use-404{background:rgba(150,90,200,.24)}
+.use-424{background:rgba(20,150,150,.24)}
 .use-426{background:rgba(230,130,40,.24)}
+.use-427{background:rgba(200,70,150,.24)}
+.use-428{background:rgba(120,90,200,.24)}
 .grid.detailed .cell{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;
   text-align:left;gap:.25rem .5rem;padding:.6rem .7rem}
 .grid.detailed .glyph{font-size:2rem;min-width:1.6em;text-align:center}
@@ -131,7 +135,7 @@ const SCRIPT = `<script>\n${readFileSync(new URL('./client.js', import.meta.url)
 
 function buildSource(data: CharacterData): string {
 	const all = data.chars;
-	const specsList = (data.specs || []).map((s) => ({ id: s.id, label: s.label, short: s.label.replace(/^ECMA-/, '') }));
+	const specsList = (data.specs || []).map((s) => ({ id: s.id, label: s.label, home: s.home, short: s.label.replace(/^ECMA-/, '') }));
 	const charByLiteral = new Map(all.map((c) => [c.char, c] as [string, CharRecord]));
 
 	function specUsed(c: CharRecord): boolean {
@@ -269,12 +273,12 @@ function buildSource(data: CharacterData): string {
 		.map((s) => `<strong>${escText(s.short)}·N</strong> = times used in ${escText(s.label)}`)
 		.join('; ');
 	const specLinks = specsList.map((s) => {
-		const link = `<a href="https://tc39.es/${escAttr(s.id)}/">${escText(s.label)}</a>`;
+		const link = `<a href="${escAttr(s.home)}">${escText(s.label)}</a>`;
 		return (usedBySpec.get(s.id) || 0) > 0 ? link : `${link} (none producible)`;
 	});
 	const intro = `<emu-intro id="introduction">
 <h1 style="display:none">Speccy</h1>
-<p>A click-to-copy grid of the characters that <a href="https://github.com/tc39/ecmarkup">ecmarkup</a>’s formatter produces from HTML entities - the non-ASCII characters you use when writing TC39 spec text. Tracks ${specLinks.join(', ')}. Built for <a href="https://github.com/tc39/ecma262/issues/3882">tc39/ecma262#3882</a>.</p>
+<p>A click-to-copy grid of the characters that <a href="https://github.com/tc39/ecmarkup">ecmarkup</a>’s formatter produces from HTML entities - the non-ASCII characters you use when writing Ecma spec text. Tracks ${specLinks.join(', ')}. Built for <a href="https://github.com/tc39/ecma262/issues/3882">tc39/ecma262#3882</a>.</p>
 <div class="speccy-tools">
 <label for="speccy-q">Search characters</label>
 <input id="speccy-q" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="purpose, name, entity, character, or U+XXXX - e.g. “number”, “list”, “laquo”, “𝔽”, “U+2264”">
