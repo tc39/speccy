@@ -19508,7 +19508,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 27,
+        "ecma262": 26,
         "ecma402": 6,
         "ecma426": 7
       },
@@ -40924,7 +40924,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 1039,
+        "ecma262": 1038,
         "ecma402": 64,
         "ecma426": 6
       },
