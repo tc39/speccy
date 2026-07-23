@@ -1356,7 +1356,7 @@
       "producible": true,
       "usage": {
         "ecma262": 433,
-        "ecma402": 134,
+        "ecma402": 138,
         "ecma426": 6
       },
       "inLatest": true,
@@ -1854,7 +1854,7 @@
       "producible": true,
       "usage": {
         "ecma262": 433,
-        "ecma402": 134,
+        "ecma402": 138,
         "ecma426": 6
       },
       "inLatest": true,
