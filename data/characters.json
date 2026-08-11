@@ -13554,7 +13554,7 @@
         "ecma262": 194,
         "ecma402": 11,
         "ecma424": 1,
-        "ecma426": 1
+        "ecma426": 11
       },
       "inLatest": true,
       "firstSeen": "15.0.4",
@@ -13593,7 +13593,7 @@
         "ecma262": 194,
         "ecma402": 11,
         "ecma424": 1,
-        "ecma426": 1
+        "ecma426": 11
       },
       "inLatest": true,
       "firstSeen": "15.0.4",
