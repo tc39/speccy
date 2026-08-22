@@ -2757,7 +2757,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 102,
+        "ecma262": 107,
         "ecma402": 23,
         "ecma426": 2
       },
@@ -13551,7 +13551,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 194,
+        "ecma262": 198,
         "ecma402": 11,
         "ecma424": 1,
         "ecma426": 11
@@ -13590,7 +13590,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 194,
+        "ecma262": 198,
         "ecma402": 11,
         "ecma424": 1,
         "ecma426": 11
@@ -14971,7 +14971,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 130,
+        "ecma262": 131,
         "ecma402": 22,
         "ecma426": 2
       },
@@ -15073,7 +15073,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 45,
+        "ecma262": 42,
         "ecma402": 3
       },
       "inLatest": true,
@@ -19433,7 +19433,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 165,
+        "ecma262": 167,
         "ecma402": 5
       },
       "inLatest": true,
@@ -45062,7 +45062,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 991,
+        "ecma262": 993,
         "ecma402": 64,
         "ecma426": 6
       },
