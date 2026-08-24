@@ -31,7 +31,7 @@
 		"@ljharb/eslint-config": "^22.2.3",
 		"@ljharb/tsconfig": "^0.3.2",
 		"@types/node": "^25.9.1",
-		"ecmarkup": "^25.0.0",
+		"ecmarkup": "^25.0.1",
 		"eslint": "^10.4.1",
 		"globals": "^16.5.0",
 		"typescript": "next",
