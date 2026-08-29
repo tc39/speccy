@@ -23,7 +23,7 @@
       "label": "ECMA-262",
       "home": "https://tc39.es/ecma262/",
       "source": "https://raw.githubusercontent.com/tc39/ecma262/main/spec.html",
-      "usedCount": 28
+      "usedCount": 27
     },
     {
       "id": "ecma402",
@@ -1394,7 +1394,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 433,
+        "ecma262": 432,
         "ecma402": 138,
         "ecma426": 6
       },
@@ -1907,7 +1907,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 433,
+        "ecma262": 432,
         "ecma402": 138,
         "ecma426": 6
       },
@@ -13965,7 +13965,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 198,
+        "ecma262": 195,
         "ecma402": 11,
         "ecma424": 1,
         "ecma426": 11
@@ -14005,7 +14005,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 198,
+        "ecma262": 195,
         "ecma402": 11,
         "ecma424": 1,
         "ecma426": 11
@@ -15428,7 +15428,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 131,
+        "ecma262": 130,
         "ecma402": 22,
         "ecma426": 2
       },
@@ -16688,7 +16688,6 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 14,
         "ecma424": 4,
         "ecma426": 2
       },
@@ -46441,7 +46440,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 993,
+        "ecma262": 992,
         "ecma402": 64,
         "ecma426": 6
       },
