@@ -58,7 +58,7 @@
       "label": "ECMA-427",
       "home": "https://tc54.org/purl/",
       "source": "https://raw.githubusercontent.com/Ecma-TC54/ECMA-427/main/spec.html",
-      "usedCount": 2
+      "usedCount": 1
     },
     {
       "id": "ecma428",
@@ -14718,8 +14718,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma424": 3,
-        "ecma427": 1
+        "ecma424": 3
       },
       "inLatest": true,
       "firstSeen": "15.0.4",
