@@ -49197,7 +49197,7 @@
       ],
       "producible": true,
       "usage": {
-        "ecma262": 991,
+        "ecma262": 994,
         "ecma402": 60,
         "ecma426": 6
       },
