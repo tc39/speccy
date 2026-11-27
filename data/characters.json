@@ -15207,7 +15207,7 @@
       "producible": true,
       "usage": {
         "ecma262": 197,
-        "ecma402": 15,
+        "ecma402": 17,
         "ecma424": 1,
         "ecma426": 11
       },
@@ -15250,7 +15250,7 @@
       "producible": true,
       "usage": {
         "ecma262": 197,
-        "ecma402": 15,
+        "ecma402": 17,
         "ecma424": 1,
         "ecma426": 11
       },
